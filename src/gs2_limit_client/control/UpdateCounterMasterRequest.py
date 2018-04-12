@@ -73,7 +73,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param limit_name: 回数制限の名前を指定します。
         :type limit_name: unicode
         """
-        if not isinstance(limit_name, unicode):
+        if limit_name and not isinstance(limit_name, unicode):
             raise TypeError(type(limit_name))
         self.__limit_name = limit_name
 
@@ -102,7 +102,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param counter_name: カウンター名を指定します。
         :type counter_name: unicode
         """
-        if not isinstance(counter_name, unicode):
+        if counter_name and not isinstance(counter_name, unicode):
             raise TypeError(type(counter_name))
         self.__counter_name = counter_name
 
@@ -131,7 +131,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param max: カウンターの最大値
         :type max: int
         """
-        if not isinstance(max, int):
+        if max and not isinstance(max, int):
             raise TypeError(type(max))
         self.__max = max
 
@@ -160,7 +160,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param reset_type: リセット周期
         :type reset_type: unicode
         """
-        if not isinstance(reset_type, unicode):
+        if reset_type and not isinstance(reset_type, unicode):
             raise TypeError(type(reset_type))
         self.__reset_type = reset_type
 
@@ -189,7 +189,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param reset_day_of_month: 期間内の取得量をリセットする日にち
         :type reset_day_of_month: int
         """
-        if not isinstance(reset_day_of_month, int):
+        if reset_day_of_month and not isinstance(reset_day_of_month, int):
             raise TypeError(type(reset_day_of_month))
         self.__reset_day_of_month = reset_day_of_month
 
@@ -218,7 +218,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param reset_day_of_week: 期間内の取得量をリセットする曜日
         :type reset_day_of_week: unicode
         """
-        if not isinstance(reset_day_of_week, unicode):
+        if reset_day_of_week and not isinstance(reset_day_of_week, unicode):
             raise TypeError(type(reset_day_of_week))
         self.__reset_day_of_week = reset_day_of_week
 
@@ -247,7 +247,7 @@ class UpdateCounterMasterRequest(Gs2BasicRequest):
         :param reset_hour: 期間内の取得量をリセットする時
         :type reset_hour: int
         """
-        if not isinstance(reset_hour, int):
+        if reset_hour and not isinstance(reset_hour, int):
             raise TypeError(type(reset_hour))
         self.__reset_hour = reset_hour
 
