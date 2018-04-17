@@ -51,7 +51,7 @@ class UpMyCounterRequest(Gs2UserRequest):
         :param limit_name: 回数制限の名前を指定します。
         :type limit_name: unicode
         """
-        if limit_name and not isinstance(limit_name, unicode):
+        if _limit_name and not (isinstance(_limit_name, str) or isinstance(_limit_name, unicode)):
             raise TypeError(type(limit_name))
         self.__limit_name = limit_name
 
@@ -80,7 +80,7 @@ class UpMyCounterRequest(Gs2UserRequest):
         :param counter_name: カウンターの名前を指定します。
         :type counter_name: unicode
         """
-        if counter_name and not isinstance(counter_name, unicode):
+        if _counter_name and not (isinstance(_counter_name, str) or isinstance(_counter_name, unicode)):
             raise TypeError(type(counter_name))
         self.__counter_name = counter_name
 

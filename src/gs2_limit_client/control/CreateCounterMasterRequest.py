@@ -73,7 +73,7 @@ class CreateCounterMasterRequest(Gs2BasicRequest):
         :param limit_name: 回数制限の名前を指定します。
         :type limit_name: unicode
         """
-        if limit_name and not isinstance(limit_name, unicode):
+        if limit_name and not (isinstance(limit_name, str) or isinstance(limit_name, unicode)):
             raise TypeError(type(limit_name))
         self.__limit_name = limit_name
 
@@ -102,7 +102,7 @@ class CreateCounterMasterRequest(Gs2BasicRequest):
         :param name: カウンターマスター名
         :type name: unicode
         """
-        if name and not isinstance(name, unicode):
+        if name and not (isinstance(name, str) or isinstance(name, unicode)):
             raise TypeError(type(name))
         self.__name = name
 
@@ -160,7 +160,7 @@ class CreateCounterMasterRequest(Gs2BasicRequest):
         :param reset_type: リセット周期
         :type reset_type: unicode
         """
-        if reset_type and not isinstance(reset_type, unicode):
+        if reset_type and not (isinstance(reset_type, str) or isinstance(reset_type, unicode)):
             raise TypeError(type(reset_type))
         self.__reset_type = reset_type
 
@@ -218,7 +218,7 @@ class CreateCounterMasterRequest(Gs2BasicRequest):
         :param reset_day_of_week: 期間内の取得量をリセットする曜日
         :type reset_day_of_week: unicode
         """
-        if reset_day_of_week and not isinstance(reset_day_of_week, unicode):
+        if reset_day_of_week and not (isinstance(reset_day_of_week, str) or isinstance(reset_day_of_week, unicode)):
             raise TypeError(type(reset_day_of_week))
         self.__reset_day_of_week = reset_day_of_week
 
