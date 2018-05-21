@@ -22,12 +22,14 @@ class Counter(object):
             self.__user_id = None
             self.__counter_name = None
             self.__count = None
+            self.__limit = None
             self.__next_reset_at = None
             self.__count_at = None
         else:
             self.set_user_id(params['userId'] if 'userId' in params.keys() else None)
             self.set_counter_name(params['counterName'] if 'counterName' in params.keys() else None)
             self.set_count(params['count'] if 'count' in params.keys() else None)
+            self.set_limit(params['limit'] if 'limit' in params.keys() else None)
             self.set_next_reset_at(params['nextResetAt'] if 'nextResetAt' in params.keys() else None)
             self.set_count_at(params['countAt'] if 'countAt' in params.keys() else None)
 
@@ -65,19 +67,35 @@ class Counter(object):
 
     def get_count(self):
         """
-        カウント値を取得
-        :return: カウント値
+        現在のカウント値を取得
+        :return: 現在のカウント値
         :rtype: int
         """
         return self.__count
 
     def set_count(self, count):
         """
-        カウント値を設定
-        :param count: カウント値
+        現在のカウント値を設定
+        :param count: 現在のカウント値
         :type count: int
         """
         self.__count = count
+
+    def get_limit(self):
+        """
+        カウントのリミット値を取得
+        :return: カウントのリミット値
+        :rtype: int
+        """
+        return self.__limit
+
+    def set_limit(self, limit):
+        """
+        カウントのリミット値を設定
+        :param limit: カウントのリミット値
+        :type limit: int
+        """
+        self.__limit = limit
 
     def get_next_reset_at(self):
         """
@@ -116,6 +134,7 @@ class Counter(object):
             "userId": self.__user_id,
             "counterName": self.__counter_name,
             "count": self.__count,
+            "limit": self.__limit,
             "nextResetAt": self.__next_reset_at,
             "countAt": self.__count_at,
         }
