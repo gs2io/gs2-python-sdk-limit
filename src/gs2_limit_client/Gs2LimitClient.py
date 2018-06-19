@@ -336,6 +336,36 @@ class Gs2LimitClient(AbstractGs2Client):
             headers=headers
         ))
 
+    def up_counter_by_stamp_task(self, request):
+        """
+        カウンターを進めます<br>
+        <br>
+        :param request: リクエストパラメータ
+        :type request: gs2_limit_client.control.UpCounterByStampTaskRequest.UpCounterByStampTaskRequest
+        :return: 結果
+        :rtype: gs2_limit_client.control.UpCounterByStampTaskResult.UpCounterByStampTaskResult
+        """
+        body = { 
+            "task": request.get_task(),
+            "keyName": request.get_key_name(),
+            "transactionId": request.get_transaction_id(),
+        }
+        headers = { 
+            "X-GS2-ACCESS-TOKEN": request.get_access_token()
+        }
+        if request.get_request_id() is not None:
+            headers["X-GS2-REQUEST-ID"] = request.get_request_id()
+        from gs2_limit_client.control.UpCounterByStampTaskRequest import UpCounterByStampTaskRequest
+        from gs2_limit_client.control.UpCounterByStampTaskResult import UpCounterByStampTaskResult
+        return UpCounterByStampTaskResult(self._do_put_request(
+            url=Gs2Constant.ENDPOINT_HOST + "/counter",
+            service=self.ENDPOINT,
+            component=UpCounterByStampTaskRequest.Constant.MODULE,
+            target_function=UpCounterByStampTaskRequest.Constant.FUNCTION,
+            body=body,
+            headers=headers
+        ))
+
     def up_my_counter(self, request):
         """
         カウンターを進めます<br>
