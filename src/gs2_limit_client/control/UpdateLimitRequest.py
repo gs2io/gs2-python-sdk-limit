@@ -53,7 +53,7 @@ class UpdateLimitRequest(Gs2BasicRequest):
         :param limit_name: 回数制限の名前を指定します。
         :type limit_name: unicode
         """
-        if limit_name and not (isinstance(limit_name, str) or isinstance(limit_name, unicode)):
+        if limit_name is not None and not (isinstance(limit_name, str) or isinstance(limit_name, unicode)):
             raise TypeError(type(limit_name))
         self.__limit_name = limit_name
 
@@ -82,7 +82,7 @@ class UpdateLimitRequest(Gs2BasicRequest):
         :param description: 説明文
         :type description: unicode
         """
-        if description and not (isinstance(description, str) or isinstance(description, unicode)):
+        if description is not None and not (isinstance(description, str) or isinstance(description, unicode)):
             raise TypeError(type(description))
         self.__description = description
 

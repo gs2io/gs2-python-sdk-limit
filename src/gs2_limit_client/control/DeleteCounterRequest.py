@@ -57,7 +57,7 @@ class DeleteCounterRequest(Gs2BasicRequest):
         :param limit_name: 回数制限の名前を指定します。
         :type limit_name: unicode
         """
-        if limit_name and not (isinstance(limit_name, str) or isinstance(limit_name, unicode)):
+        if limit_name is not None and not (isinstance(limit_name, str) or isinstance(limit_name, unicode)):
             raise TypeError(type(limit_name))
         self.__limit_name = limit_name
 
@@ -86,7 +86,7 @@ class DeleteCounterRequest(Gs2BasicRequest):
         :param user_id: ユーザIDを指定します。
         :type user_id: unicode
         """
-        if user_id and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
+        if user_id is not None and not (isinstance(user_id, str) or isinstance(user_id, unicode)):
             raise TypeError(type(user_id))
         self.__user_id = user_id
 
@@ -115,7 +115,7 @@ class DeleteCounterRequest(Gs2BasicRequest):
         :param counter_name: カウンター名を指定します。
         :type counter_name: unicode
         """
-        if counter_name and not (isinstance(counter_name, str) or isinstance(counter_name, unicode)):
+        if counter_name is not None and not (isinstance(counter_name, str) or isinstance(counter_name, unicode)):
             raise TypeError(type(counter_name))
         self.__counter_name = counter_name
 

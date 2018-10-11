@@ -54,14 +54,13 @@ class Gs2LimitClient(AbstractGs2Client):
             body["resetDayOfWeek"] = request.get_reset_day_of_week()
         if request.get_reset_hour() is not None:
             body["resetHour"] = request.get_reset_hour()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.CreateCounterMasterRequest import CreateCounterMasterRequest
         from gs2_limit_client.control.CreateCounterMasterResult import CreateCounterMasterResult
         return CreateCounterMasterResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master/counter",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master/counter",
             service=self.ENDPOINT,
             component=CreateCounterMasterRequest.Constant.MODULE,
             target_function=CreateCounterMasterRequest.Constant.FUNCTION,
@@ -77,13 +76,12 @@ class Gs2LimitClient(AbstractGs2Client):
         :type request: gs2_limit_client.control.DeleteCounterMasterRequest.DeleteCounterMasterRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DeleteCounterMasterRequest import DeleteCounterMasterRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=DeleteCounterMasterRequest.Constant.MODULE,
             target_function=DeleteCounterMasterRequest.Constant.FUNCTION,
@@ -99,19 +97,19 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.DescribeCounterMasterResult.DescribeCounterMasterResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DescribeCounterMasterRequest import DescribeCounterMasterRequest
 
         from gs2_limit_client.control.DescribeCounterMasterResult import DescribeCounterMasterResult
         return DescribeCounterMasterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master/counter",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master/counter",
             service=self.ENDPOINT,
             component=DescribeCounterMasterRequest.Constant.MODULE,
             target_function=DescribeCounterMasterRequest.Constant.FUNCTION,
@@ -127,17 +125,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetCounterMasterResult.GetCounterMasterResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetCounterMasterRequest import GetCounterMasterRequest
 
         from gs2_limit_client.control.GetCounterMasterResult import GetCounterMasterResult
         return GetCounterMasterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=GetCounterMasterRequest.Constant.MODULE,
             target_function=GetCounterMasterRequest.Constant.FUNCTION,
@@ -164,14 +160,13 @@ class Gs2LimitClient(AbstractGs2Client):
             body["resetDayOfWeek"] = request.get_reset_day_of_week()
         if request.get_reset_hour() is not None:
             body["resetHour"] = request.get_reset_hour()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpdateCounterMasterRequest import UpdateCounterMasterRequest
         from gs2_limit_client.control.UpdateCounterMasterResult import UpdateCounterMasterResult
         return UpdateCounterMasterResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=UpdateCounterMasterRequest.Constant.MODULE,
             target_function=UpdateCounterMasterRequest.Constant.FUNCTION,
@@ -187,13 +182,12 @@ class Gs2LimitClient(AbstractGs2Client):
         :type request: gs2_limit_client.control.DeleteCounterRequest.DeleteCounterRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DeleteCounterRequest import DeleteCounterRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=DeleteCounterRequest.Constant.MODULE,
             target_function=DeleteCounterRequest.Constant.FUNCTION,
@@ -209,19 +203,19 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.DescribeCounterResult.DescribeCounterResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DescribeCounterRequest import DescribeCounterRequest
 
         from gs2_limit_client.control.DescribeCounterResult import DescribeCounterResult
         return DescribeCounterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/counter",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/counter",
             service=self.ENDPOINT,
             component=DescribeCounterRequest.Constant.MODULE,
             target_function=DescribeCounterRequest.Constant.FUNCTION,
@@ -237,19 +231,19 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.DescribeCounterByUserIdResult.DescribeCounterByUserIdResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DescribeCounterByUserIdRequest import DescribeCounterByUserIdRequest
 
         from gs2_limit_client.control.DescribeCounterByUserIdResult import DescribeCounterByUserIdResult
         return DescribeCounterByUserIdResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/counter",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/counter",
             service=self.ENDPOINT,
             component=DescribeCounterByUserIdRequest.Constant.MODULE,
             target_function=DescribeCounterByUserIdRequest.Constant.FUNCTION,
@@ -265,17 +259,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetCounterResult.GetCounterResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetCounterRequest import GetCounterRequest
 
         from gs2_limit_client.control.GetCounterResult import GetCounterResult
         return GetCounterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=GetCounterRequest.Constant.MODULE,
             target_function=GetCounterRequest.Constant.FUNCTION,
@@ -291,18 +283,17 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetMyCounterResult.GetMyCounterResult
         """
-        query_strings = {
-        }
-        headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
-        }
+        query_strings = {}
+        headers = {}
+        if request.get_access_token() is not None:
+            headers["X-GS2-ACCESS-TOKEN"] = request.get_access_token()
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetMyCounterRequest import GetMyCounterRequest
 
         from gs2_limit_client.control.GetMyCounterResult import GetMyCounterResult
         return GetMyCounterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=GetMyCounterRequest.Constant.MODULE,
             target_function=GetMyCounterRequest.Constant.FUNCTION,
@@ -321,14 +312,13 @@ class Gs2LimitClient(AbstractGs2Client):
         """
         body = { 
         }
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpCounterRequest import UpCounterRequest
         from gs2_limit_client.control.UpCounterResult import UpCounterResult
         return UpCounterResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else url_encoder.encode(request.get_user_id()))) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/user/" + str(("null" if request.get_user_id() is None or request.get_user_id() == "" else request.get_user_id())) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=UpCounterRequest.Constant.MODULE,
             target_function=UpCounterRequest.Constant.FUNCTION,
@@ -350,9 +340,9 @@ class Gs2LimitClient(AbstractGs2Client):
             "keyName": request.get_key_name(),
             "transactionId": request.get_transaction_id(),
         }
-        headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
-        }
+        headers = {}
+        if request.get_access_token() is not None:
+            headers["X-GS2-ACCESS-TOKEN"] = request.get_access_token()
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpCounterByStampTaskRequest import UpCounterByStampTaskRequest
@@ -377,15 +367,15 @@ class Gs2LimitClient(AbstractGs2Client):
         """
         body = { 
         }
-        headers = { 
-            "X-GS2-ACCESS-TOKEN": request.get_access_token()
-        }
+        headers = {}
+        if request.get_access_token() is not None:
+            headers["X-GS2-ACCESS-TOKEN"] = request.get_access_token()
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpMyCounterRequest import UpMyCounterRequest
         from gs2_limit_client.control.UpMyCounterResult import UpMyCounterResult
         return UpMyCounterResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else url_encoder.encode(request.get_counter_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/counter/" + str(("null" if request.get_counter_name() is None or request.get_counter_name() == "" else request.get_counter_name())) + "",
             service=self.ENDPOINT,
             component=UpMyCounterRequest.Constant.MODULE,
             target_function=UpMyCounterRequest.Constant.FUNCTION,
@@ -401,17 +391,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetCurrentCounterMasterResult.GetCurrentCounterMasterResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetCurrentCounterMasterRequest import GetCurrentCounterMasterRequest
 
         from gs2_limit_client.control.GetCurrentCounterMasterResult import GetCurrentCounterMasterResult
         return GetCurrentCounterMasterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/counter/master",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/counter/master",
             service=self.ENDPOINT,
             component=GetCurrentCounterMasterRequest.Constant.MODULE,
             target_function=GetCurrentCounterMasterRequest.Constant.FUNCTION,
@@ -432,14 +420,13 @@ class Gs2LimitClient(AbstractGs2Client):
             "settings": request.get_settings(),
         }
 
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpdateCurrentCounterMasterRequest import UpdateCurrentCounterMasterRequest
         from gs2_limit_client.control.UpdateCurrentCounterMasterResult import UpdateCurrentCounterMasterResult
         return UpdateCurrentCounterMasterResult(self._do_post_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/counter/master",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/counter/master",
             service=self.ENDPOINT,
             component=UpdateCurrentCounterMasterRequest.Constant.MODULE,
             target_function=UpdateCurrentCounterMasterRequest.Constant.FUNCTION,
@@ -462,8 +449,7 @@ class Gs2LimitClient(AbstractGs2Client):
 
         if request.get_description() is not None:
             body["description"] = request.get_description()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.CreateLimitRequest import CreateLimitRequest
@@ -485,13 +471,12 @@ class Gs2LimitClient(AbstractGs2Client):
         :type request: gs2_limit_client.control.DeleteLimitRequest.DeleteLimitRequest
         """
         query_strings = {}
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DeleteLimitRequest import DeleteLimitRequest
         self._do_delete_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "",
             service=self.ENDPOINT,
             component=DeleteLimitRequest.Constant.MODULE,
             target_function=DeleteLimitRequest.Constant.FUNCTION,
@@ -507,12 +492,12 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.DescribeLimitResult.DescribeLimitResult
         """
-        query_strings = {
-            'pageToken': request.get_page_token(),
-            'limit': request.get_limit(),
-        }
-        headers = { 
-        }
+        query_strings = {}
+        if request.get_page_token() is not None:
+            query_strings['pageToken'] = request.get_page_token()
+        if request.get_limit() is not None:
+            query_strings['limit'] = request.get_limit()
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.DescribeLimitRequest import DescribeLimitRequest
@@ -535,17 +520,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetLimitResult.GetLimitResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetLimitRequest import GetLimitRequest
 
         from gs2_limit_client.control.GetLimitResult import GetLimitResult
         return GetLimitResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "",
             service=self.ENDPOINT,
             component=GetLimitRequest.Constant.MODULE,
             target_function=GetLimitRequest.Constant.FUNCTION,
@@ -561,17 +544,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.GetLimitStatusResult.GetLimitStatusResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.GetLimitStatusRequest import GetLimitStatusRequest
 
         from gs2_limit_client.control.GetLimitStatusResult import GetLimitStatusResult
         return GetLimitStatusResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/status",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/status",
             service=self.ENDPOINT,
             component=GetLimitStatusRequest.Constant.MODULE,
             target_function=GetLimitStatusRequest.Constant.FUNCTION,
@@ -592,14 +573,13 @@ class Gs2LimitClient(AbstractGs2Client):
         }
         if request.get_description() is not None:
             body["description"] = request.get_description()
-        headers = { 
-        }
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.UpdateLimitRequest import UpdateLimitRequest
         from gs2_limit_client.control.UpdateLimitResult import UpdateLimitResult
         return UpdateLimitResult(self._do_put_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "",
             service=self.ENDPOINT,
             component=UpdateLimitRequest.Constant.MODULE,
             target_function=UpdateLimitRequest.Constant.FUNCTION,
@@ -615,17 +595,15 @@ class Gs2LimitClient(AbstractGs2Client):
         :return: 結果
         :rtype: gs2_limit_client.control.ExportMasterResult.ExportMasterResult
         """
-        query_strings = {
-        }
-        headers = { 
-        }
+        query_strings = {}
+        headers = {}
         if request.get_request_id() is not None:
             headers["X-GS2-REQUEST-ID"] = request.get_request_id()
         from gs2_limit_client.control.ExportMasterRequest import ExportMasterRequest
 
         from gs2_limit_client.control.ExportMasterResult import ExportMasterResult
         return ExportMasterResult(self._do_get_request(
-            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else url_encoder.encode(request.get_limit_name()))) + "/master",
+            url=Gs2Constant.ENDPOINT_HOST + "/limit/" + str(("null" if request.get_limit_name() is None or request.get_limit_name() == "" else request.get_limit_name())) + "/master",
             service=self.ENDPOINT,
             component=ExportMasterRequest.Constant.MODULE,
             target_function=ExportMasterRequest.Constant.FUNCTION,
